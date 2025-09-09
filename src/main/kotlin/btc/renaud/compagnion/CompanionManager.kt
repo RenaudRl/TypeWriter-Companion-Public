@@ -47,7 +47,6 @@ object CompanionManager {
         }
         val entity = definition.create(player)
         entity.spawn(target.toProperty())
-        ModelEngineSupport.prepare(entity)
 
         val context = IndividualActivityContext(emptyRef(), player, true, entity.state)
         val activity = ActivityManager(activityCreator.create(context, target.toProperty()))
@@ -62,7 +61,6 @@ object CompanionManager {
             maxDistance = maxDistance,
         )
         companions[player.uniqueId] = companion
-        ModelEngineSupport.updateAnimation(entity, player, moving = false)
         companion.lastMovingAnimation = false
         startFollow(player)
     }
@@ -87,7 +85,6 @@ object CompanionManager {
         companion.entity.consumeProperties(listOf(target.toProperty()) + active)
         companion.entity.tick()
         companion.lastMovingAnimation = false
-        ModelEngineSupport.updateAnimation(companion.entity, player, moving = false)
     }
 
     /** Toggle between follow and wait mode. */
@@ -225,11 +222,9 @@ object CompanionManager {
                 if (companionMoving) {
                     // Continuously trigger the walk animation while moving so that
                     // short animations don't revert to idle mid-walk.
-                    ModelEngineSupport.updateAnimation(companion.entity, player, true)
                     companion.lastMovingAnimation = true
                 } else if (companion.lastMovingAnimation != false) {
                     companion.lastMovingAnimation = false
-                    ModelEngineSupport.updateAnimation(companion.entity, player, false)
                 }
 
                 // Detect when the companion is stuck against an obstacle
