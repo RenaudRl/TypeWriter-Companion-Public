@@ -21,3 +21,4 @@ class CompanionActiveFactEntry(
         return if (CompanionManager.hasCompanion(player)) FactData(1) else FactData(0)
     }
 }
+

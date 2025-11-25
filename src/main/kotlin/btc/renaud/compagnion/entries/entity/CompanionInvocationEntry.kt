@@ -90,3 +90,4 @@ class CompanionInvocationDisplay(
         CompanionManager.remove(event.player)
     }
 }
+

@@ -37,3 +37,4 @@ fun onCompanionInteract(event: AsyncFakeEntityInteract, query: Query<CompanionIn
     entries.triggerAllFor(player, context())
 }
 
+
