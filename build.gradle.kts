@@ -7,6 +7,7 @@ group = "btc.renaud"
 version = "0.0.1"
 
 repositories {
+    maven("https://repo.codemc.io/repository/maven-public/")
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://maven.typewritermc.com/beta/")
