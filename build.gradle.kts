@@ -1,6 +1,6 @@
-plugins {
+﻿plugins {
     kotlin("jvm") version "2.2.10"
-    id("com.typewritermc.module-plugin")
+    id("com.typewritermc.module-plugin") version "2.1.0"
 }
 
 group = "btc.renaud"
@@ -11,6 +11,9 @@ repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://maven.typewritermc.com/beta/")
+    flatDir {
+        dir("libs")
+    }
 }
 
 dependencies {
@@ -28,7 +31,7 @@ typewriter {
         shortDescription = "Typewriter extension for Compagnion support."
         description =
             "This extension adds support for Compagnion in Typewriter like a npc can follow you and interact with the environment."
-        engineVersion = file("../../version.txt").readText().trim()
+        engineVersion = "0.9.0-beta-171"
         channel = com.typewritermc.moduleplugin.ReleaseChannel.BETA
         dependencies {
             dependency("typewritermc", "Entity")
@@ -44,5 +47,4 @@ kotlin {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
     }
 }
-
 
