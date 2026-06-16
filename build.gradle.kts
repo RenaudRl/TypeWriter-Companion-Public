@@ -1,22 +1,24 @@
-﻿plugins {
-    kotlin("jvm") version "2.2.10"
+plugins {
+    kotlin("jvm") version "2.3.20"
     id("com.typewritermc.module-plugin") version "2.1.0"
 }
 
-group = "btc.renaud"
-version = "0.0.1"
-
 repositories {
-    maven("https://repo.codemc.io/repository/maven-public/")
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
+    maven("https://repo.codemc.io/repository/maven-public/")
     maven("https://maven.typewritermc.com/beta/")
-    flatDir {
-        dir("libs")
-    }
+    maven("https://maven.typewritermc.com/external/")
+    maven("https://jitpack.io")
+    mavenLocal()
 }
 
+group = "btcrenaud"
+version = "0.0.7"
+
 dependencies {
+    compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
+    compileOnly("com.typewritermc:engine-paper")
     implementation("com.typewritermc:QuestExtension:0.9.0")
     implementation("com.typewritermc:BasicExtension:0.9.0")
     implementation("com.typewritermc:EntityExtension:0.9.0")
@@ -24,27 +26,31 @@ dependencies {
 }
 
 typewriter {
-    namespace = "renaud"
-
+    namespace = "btcrenaud"
     extension {
-        name = "Compagnion"
-        shortDescription = "Typewriter extension for Compagnion support."
-        description =
-            "This extension adds support for Compagnion in Typewriter like a npc can follow you and interact with the environment."
-        engineVersion = "0.9.0-beta-171"
+        name = "Companion"
+        shortDescription = "Typewriter extension for Companion support."
+        description = "This extension adds support for Companions in Typewriter — NPCs that follow the player and interact with the environment."
+        engineVersion = "0.9.0-beta-174"
         channel = com.typewritermc.moduleplugin.ReleaseChannel.BETA
+
         dependencies {
             dependency("typewritermc", "Entity")
-            paper()
+        }
+        paper()
+
+        dependencies {
+            dependency("typewritermc", "Quest")
+            dependency("typewritermc", "Basic")
+            dependency("typewritermc", "Entity")
+            dependency("typewritermc", "RoadNetwork")
         }
     }
-
 }
+
+    
 
 kotlin {
-    jvmToolchain(21)
-    compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
-    }
+    jvmToolchain(25)
+    
 }
-
