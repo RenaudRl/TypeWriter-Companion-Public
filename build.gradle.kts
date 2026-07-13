@@ -14,7 +14,7 @@ repositories {
 }
 
 group = "btcrenaud"
-version = "0.0.7"
+version = "0.0.8"
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
@@ -31,7 +31,7 @@ typewriter {
         name = "Companion"
         shortDescription = "Typewriter extension for Companion support."
         description = "This extension adds support for Companions in Typewriter — NPCs that follow the player and interact with the environment."
-        engineVersion = "0.9.0-beta-174"
+        engineVersion = "0.9.0-beta-175"
         channel = com.typewritermc.moduleplugin.ReleaseChannel.BETA
 
         dependencies {
