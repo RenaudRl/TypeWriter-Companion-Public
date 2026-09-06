@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.3.20"
-    id("com.typewritermc.module-plugin") version "2.1.0"
+    kotlin("jvm") version "2.2.10"
+    id("com.typewritermc.module-plugin") version "2.2.0"
 }
 
 repositories {
@@ -10,11 +10,14 @@ repositories {
     maven("https://maven.typewritermc.com/beta/")
     maven("https://maven.typewritermc.com/external/")
     maven("https://jitpack.io")
-    mavenLocal()
 }
 
 group = "btcrenaud"
-version = "0.0.8"
+version = "0.0.9"
+
+base {
+    archivesName.set("CompagnionExtension")
+}
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
@@ -31,7 +34,7 @@ typewriter {
         name = "Companion"
         shortDescription = "Typewriter extension for Companion support."
         description = "This extension adds support for Companions in Typewriter — NPCs that follow the player and interact with the environment."
-        engineVersion = "0.9.0-beta-175"
+        engineVersion = "0.9.0-beta-176"
         channel = com.typewritermc.moduleplugin.ReleaseChannel.BETA
 
         dependencies {
