@@ -13,7 +13,7 @@ repositories {
 }
 
 group = "btcrenaud"
-version = "0.0.9"
+version = "0.0.10"
 
 base {
     archivesName.set("CompagnionExtension")
@@ -34,7 +34,7 @@ typewriter {
         name = "Companion"
         shortDescription = "Typewriter extension for Companion support."
         description = "This extension adds support for Companions in Typewriter — NPCs that follow the player and interact with the environment."
-        engineVersion = "0.9.0-beta-176"
+        engineVersion = "0.9.0-beta-177"
         channel = com.typewritermc.moduleplugin.ReleaseChannel.BETA
 
         dependencies {
