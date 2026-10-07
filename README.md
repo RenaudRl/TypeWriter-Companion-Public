@@ -1,28 +1,34 @@
 # Companion Extension
 
 ![Java Version](https://img.shields.io/badge/Java-21-orange)
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![Target](https://img.shields.io/badge/Target-Paper%20/%20Folia%20/%20BTC--CORE-blue)
+![Target](https://img.shields.io/badge/Target-Paper-blue)
+![Typewriter](https://img.shields.io/badge/Typewriter-0.9.0--beta--177-purple)
 
-**Companion Extension** is an entity interaction module for **TypeWriter**, engineered for **BTC Studio** infrastructure. It enables the creation of intelligent companion NPCs that can follow players and interact with the environment.
+**Companion Extension** is an entity module for **TypeWriter**, built for **BTC Studio** infrastructure. It spawns a companion NPC for a player that follows them, can be told to wait, and reacts when the player clicks it.
+
+---
+
+## 🧩 Available Entries
+
+| Type | Entry | Role |
+|---|---|---|
+| Audience | `companion_invocation` | Spawns and manages the player's companion from an entity definition |
+| Action | `companion_follow_mode` | Toggles follow or wait mode; `definition` targets one companion (empty = all), `minDistance` (2.0) and `maxDistance` (4.0) set the follow distances |
+| Event | `companion_interact` | Fires its `triggers` when the player clicks their companion; optional `criteria` |
+| Fact | `companion_active` | Number of active companions of the player |
 
 ---
 
-## 🚀 Key Features
+## 📋 Requirements
 
-### 🤝 Companion System
-- **Follow Mechanics**: NPCs that intelligently follow their owners.
-- **Environmental Interaction**: Companions that can react to and interact with the world around them.
-
-### 🧠 Entity Intelligence
-- **TypeWriter Entity Integration**: Built on top of the robust TypeWriter Entity module.
-- **Behavioral Config**: Highly configurable behaviors for diverse companion types.
-
----
+- **Typewriter** `0.9.0-beta-177`
+- Typewriter extensions **Basic**, **Quest**, **Entity** and **RoadNetwork** (declared as dependencies)
+- **Paper** 1.21.x (no Folia support is promised)
+- Optional: the ModelEngine entity support of Typewriter, for companions that use a model
 
 ## ⚙️ Configuration
 
-Companion Extension configuration is managed via TypeWriter's manifest system.
+Everything is configured from the Typewriter web panel through the entries above. The extension declares no command and no permission.
 
 ## 🛠 Building & Deployment
 
@@ -37,8 +43,7 @@ cd TypeWriter-Companion-Public
 ./gradlew clean build
 ```
 
-### Artifact Locations:
-- `build/libs/Compagnion-[Version].jar`
+Output: `build/libs/CompagnionExtension-<version>.jar`
 
 ---
 
@@ -46,14 +51,9 @@ cd TypeWriter-Companion-Public
 - **[TypeWriter](https://github.com/gabber235/Typewriter)** - The engine this extension is built for.
 - **[BTC Studio](https://github.com/RenaudRl)** - Maintenance and specialized optimizations.
 
----
+## 📖 Documentation
 
-## 📜 License
-Licensed under the **MIT License**.
-
-## Documentation
-
-Full documentation available at [BTC Studio Docs](https://docs.borntocraftstudio.net/extensions/free/companion/).
+Full documentation: [BTC Studio Docs](https://docs.borntocraftstudio.net/extensions/free/companion/).
 
 ---
 
