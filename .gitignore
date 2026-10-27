@@ -14,3 +14,7 @@ target/
 __pycache__/
 .kotlin/
 bin/
+
+# IDE
+.idea/
+.vscode/
